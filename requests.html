@@ -1,0 +1,254 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayer Requests</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'poppins';
+        }
+        body{
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .container{
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 2rem;
+            background: rgb(255, 196, 81,0.8);
+            padding: 2rem;
+            border-radius: 10px;
+            width: 60%;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .wrapper{
+            display: flex; 
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        textarea{
+            width: 100%;
+            height: 50px;
+            padding: 5px;
+            border-radius: 10px;
+            resize: none;
+            font-size: 1rem;
+            border: none;
+            outline: none;
+            margin-left: 10px;
+            padding-left: 10px;
+            margin: 0 auto;
+            background-color: beige;
+        }
+
+        .request{
+                height: 150px;
+        }
+
+        .send{
+            width: 50%;
+            padding: 10px;
+        }
+
+        @media screen and (max-width:600px){
+            .container{
+                width: 80%;
+            }
+
+            .title{
+                font-size: 1.5rem;
+            }
+
+            textarea{
+                width: 95%;
+                height: 40px;
+                padding: 5px;
+                border-radius: 10px;
+                resize: none;
+                font-size: 1rem;
+            }
+
+            .request{
+                height: 150px;
+            }
+
+            .name-add{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+    <div class="container">
+    <h1 style="color:white;" class="title">Prayer Requests Section</h1>
+    <hr style="width: 100%;color: white;">
+    <textarea type="placeholder" name="" id="" placeholder="Name"></textarea>
+    <textarea type="placeholder" name="" id="" placeholder="Address"></textarea>
+    <textarea type="placeholder" name="" id="" placeholder="Contact"></textarea>
+    <textarea type="placeholder" name="" id="" placeholder="Request" class="request"></textarea>
+    <input type="submit" value="Send" name="Send" class="send">
+    </div>
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offering</title>
+    <style>
+        .online-cont{
+            background: lightgray;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 10px;
+            /* width: 30%; */
+            margin: 0 auto;
+            /* gap: -50px; */
+        }
+
+        .online-text{
+            padding: 10px;
+        }
+
+        .online{
+            font-size: 2.5rem;
+            text-align: center;
+            background: rgb(255, 196, 81,0.8);
+            color: white;
+            padding: 10px;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+        }
+
+    
+        .close-btn{
+            width: 100%;
+            padding: 10px;
+            background: red;
+            color: white;
+            border: 0px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+
+        button.open-btn,
+        .online-cont{
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section.active .open-btn {
+        display: none;
+        }
+
+        .overlay {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        pointer-events: none;
+        }
+
+
+        section.active .overlay {
+        opacity: 1;
+        pointer-events: auto;
+        }
+
+        .online-cont {
+        max-width: 380px;
+        width: 100%;
+        border-radius: 10px;
+        background-color: #fff;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        transform: translate(-50%, -50%) scale(1.2);
+        }
+
+        section.active .online-cont {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        
+        @media screen and (max-width: 600px) {
+            .online{
+            font-size: 1.8rem;
+            }
+
+            .online-cont{
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section>
+    <button class="open-btn"><strong>Open Form</strong></button>
+    <span class="overlay"></span>
+
+    <div class="online-cont" id="popupForm">
+        <div class="online">
+            Online Giving
+        </div>
+        <div class="online-text">
+            <h2>Kindly Pay your Offering to the Account Number Below:</h2>
+            <h3 style="color: blue;">Instructions: <br>Copy the Account Details</h3>
+            <h2>Account Number: <span style="color: blue;">1234543234</span></h2>
+            <h2>Account Name: <span style="color: blue;">CAC ATAMATASE</span></h2>
+            <h2>Bank: <span style="color: blue;">Guaranty Trust Bank (GTB)</span></h2>
+        </div>
+        <button type="button" class="close-btn">Close</button>
+
+    </div>
+</section>
+
+
+    <script>
+        const section = document.querySelector("section"),
+          overlay = document.querySelector(".overlay"),
+          showBtn = document.querySelector(".open-btn"),
+          closeBtn = document.querySelector(".close-btn");
+  
+        showBtn.addEventListener("click", () => section.classList.add("active"));
+  
+        overlay.addEventListener("click", () =>
+          section.classList.remove("active")
+        );
+  
+        closeBtn.addEventListener("click", () =>
+          section.classList.remove("active")
+        );
+      </script>
+</body>
+</html>
